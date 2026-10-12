@@ -1,34 +1,72 @@
-<!doctype html>
-<html lang="ru" class="document">
-<head class="document-head">
-<meta class="document-meta" charset="utf-8">
-<meta class="document-meta" name="viewport" content="width=device-width, initial-scale=1">
-<title class="document-title">Выбор даты и времени — BARBER ROOM</title>
-<link class="stylesheet-link" rel="stylesheet" href="styles.css">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выбор даты и времени — BRUTAL CUT</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page">
-<header class="header"><a class="logo" href="#">BARBER<span class="inline-label">ROOM</span><small class="brand-tagline">МУЖСКАЯ ПАРИКМАХЕРСКАЯ</small></a><nav class="navigation" aria-label="Основное меню"><a class="nav-item" href="#">Услуги</a><a class="nav-item" href="#">Мастера</a><a class="nav-item" href="#">О нас</a><a class="nav-item" href="#">Контакты</a></nav><a class="my-booking" href="#">Мои записи ↗</a></header>
-<main class="main">
-<section class="intro"><p class="eyebrow">ОНЛАЙН-ЗАПИСЬ / ШАГ 02 ИЗ 03</p><h1 class="page-title">Выберите удобное <em class="title-accent">время.</em></h1><p class="description">Осталось совсем немного. Выберите дату и свободное время для визита.</p></section>
-<nav class="steps" aria-label="Этапы записи"><span class="step done"><b class="step-index">✓</b> Услуга и мастер</span><i class="step-connector"></i><span class="step current" aria-current="step"><b class="step-index">2</b> Дата и время</span><i class="step-connector"></i><span class="step pending"><b class="step-index">3</b> Подтверждение</span></nav>
-<div class="panels">
-<section class="panel" aria-labelledby="calendar-heading"><div class="panel-head"><div class="layout-group"><p class="eyebrow">ШАГ 01</p><h2 class="section-title" id="calendar-heading">Выберите дату</h2></div><span class="panel-number">01</span></div>
-<div class="month"><h3 class="subheading">Октябрь 2026</h3><div class="month-buttons"><button class="available-button" type="button" aria-label="Предыдущий месяц">←</button><button class="available-button" type="button" aria-label="Следующий месяц">→</button></div></div>
-<div class="calendar" aria-label="Календарь октября 2026">
-<span class="weekday">Пн</span><span class="weekday">Вт</span><span class="weekday">Ср</span><span class="weekday">Чт</span><span class="weekday">Пт</span><span class="weekday">Сб</span><span class="weekday">Вс</span>
-<span class="muted">28</span><span class="muted">29</span><span class="muted">30</span>
-<button class="unavailable-button" disabled>1</button><button class="unavailable-button" disabled>2</button><button class="unavailable-button" disabled>3</button><button class="unavailable-button" disabled>4</button>
-<button class="unavailable-button" disabled>5</button><button class="unavailable-button" disabled>6</button><button class="unavailable-button" disabled>7</button><button class="unavailable-button" disabled>8</button><button class="unavailable-button" disabled>9</button>
-<button class="available-button" type="button">10</button><button class="available-button" type="button">11</button><button class="available-button" type="button">12</button><button class="available-button" type="button">13</button><button class="available-button" type="button">14</button><button type="button" class="selected" aria-pressed="true">15</button><button class="available-button" type="button">16</button><button class="available-button" type="button">17</button><button class="available-button" type="button">18</button><button class="available-button" type="button">19</button><button class="available-button" type="button">20</button><button class="available-button" type="button">21</button><button class="available-button" type="button">22</button><button class="available-button" type="button">23</button><button class="available-button" type="button">24</button><button class="available-button" type="button">25</button><button class="available-button" type="button">26</button><button class="available-button" type="button">27</button><button class="available-button" type="button">28</button><button class="available-button" type="button">29</button><button class="available-button" type="button">30</button><button class="available-button" type="button">31</button><span class="muted">1</span>
-</div><p class="calendar-hint">● Выбрано: четверг, 15 октября</p>
-</section>
-<section class="panel" aria-labelledby="time-heading"><div class="panel-head"><div class="layout-group"><p class="eyebrow">ШАГ 02</p><h2 class="section-title" id="time-heading">Выберите время</h2></div><span class="panel-number">02</span></div><div class="date-summary"><strong class="emphasis">Четверг, 15 октября</strong><span class="inline-label">● Есть свободные места</span></div>
-<h3 class="period">УТРО</h3><div class="slots"><button class="available-button">10:00</button><button class="available-button">10:30</button><button class="unavailable-button" disabled>11:00</button><button class="available-button">11:30</button></div>
-<h3 class="period">ДЕНЬ</h3><div class="slots"><button class="available-button">12:00</button><button class="unavailable-button" disabled>12:30</button><button class="selected" aria-pressed="true">13:00</button><button class="available-button">14:30</button><button class="available-button">15:00</button><button class="unavailable-button" disabled>15:30</button></div>
-<h3 class="period">ВЕЧЕР</h3><div class="slots"><button class="available-button">17:00</button><button class="available-button">17:30</button><button class="unavailable-button" disabled>18:00</button><button class="available-button">19:00</button></div>
-<div class="legend"><span class="inline-label"><i class="free"></i>Свободно</span><span class="inline-label"><i class="busy"></i>Занято</span><span class="inline-label"><i class="chosen"></i>Выбрано</span></div>
-</section></div>
-<section class="bottom" aria-label="Выбранная запись"><div class="layout-group"><p class="eyebrow">ВАША ЗАПИСЬ</p><strong class="emphasis">15 октября 2026 · 13:00</strong><p class="body-copy">Мужская стрижка · 60 минут</p></div><a class="continue" href="#">Продолжить ↗</a></section>
-</main>
-<footer class="footer"><strong class="emphasis">BARBER ROOM © 2026</strong><span class="inline-label">Стиль начинается с деталей.</span></footer>
-</body></html>
+  <header class="header">
+    <div class="header-brand">
+      <a class="brand" href="#">BRUTAL CUT</a>
+      <span class="brand-description">Барбершоп в центре города</span>
+    </div>
+    <nav class="navigation" aria-label="Основная навигация">
+      <a class="navigation-link" href="#">Услуги</a>
+      <a class="navigation-link" href="#">Мастера</a>
+      <a class="navigation-link" href="#">Контакты</a>
+    </nav>
+  </header>
+  <main class="main">
+    <section class="introduction" aria-labelledby="page-heading">
+      <p class="step-description">Шаг 3 из 5&nbsp; • &nbsp;Дата и время</p>
+      <p class="eyebrow">ЗАПИСЬ</p>
+      <h1 class="page-heading" id="page-heading">Выберите дату и время</h1>
+      <p class="page-description">Показываем только реально свободные слоты выбранного мастера.</p>
+    </section>
+    <div class="booking-layout">
+      <section class="calendar-card" aria-labelledby="month-heading">
+        <div class="calendar-header">
+          <h2 class="month-heading" id="month-heading">Октябрь 2026</h2>
+          <div class="calendar-controls">
+            <button class="calendar-arrow" type="button" aria-label="Предыдущий месяц">‹</button>
+            <button class="calendar-arrow" type="button" aria-label="Следующий месяц">›</button>
+          </div>
+        </div>
+        <div class="calendar-grid" aria-label="Календарь на октябрь 2026">
+          <span class="weekday">Пн</span><span class="weekday">Вт</span><span class="weekday">Ср</span><span class="weekday">Чт</span><span class="weekday">Пт</span><span class="weekday">Сб</span><span class="weekday">Вс</span>
+          <button class="calendar-day" type="button">1</button><button class="calendar-day" type="button">2</button><button class="calendar-day" type="button">3</button><button class="calendar-day" type="button">4</button><button class="calendar-day" type="button">5</button><button class="calendar-day" type="button">6</button><button class="calendar-day selected" type="button" aria-pressed="true">7</button>
+          <button class="calendar-day" type="button">8</button><button class="calendar-day" type="button">9</button><button class="calendar-day" type="button">10</button><button class="calendar-day" type="button">11</button><button class="calendar-day" type="button">12</button><button class="calendar-day" type="button">13</button><button class="calendar-day" type="button">14</button>
+          <button class="calendar-day" type="button">15</button><button class="calendar-day" type="button">16</button><button class="calendar-day" type="button">17</button><button class="calendar-day" type="button">18</button><button class="calendar-day" type="button">19</button><button class="calendar-day" type="button">20</button><button class="calendar-day" type="button">21</button>
+          <button class="calendar-day" type="button">22</button><button class="calendar-day" type="button">23</button><button class="calendar-day" type="button">24</button><button class="calendar-day" type="button">25</button><button class="calendar-day" type="button">26</button><button class="calendar-day" type="button">27</button><button class="calendar-day" type="button">28</button>
+          <button class="calendar-day" type="button">29</button><button class="calendar-day" type="button">30</button><button class="calendar-day" type="button">31</button>
+        </div>
+        <div class="times">
+          <h3 class="times-heading">Свободное время — 7 октября</h3>
+          <div class="time-options">
+            <button class="time-option" type="button">11:00</button>
+            <button class="time-option" type="button">12:30</button>
+            <button class="time-option" type="button">15:00</button>
+            <button class="time-option selected" type="button" aria-pressed="true">17:30</button>
+            <button class="time-option" type="button">19:00</button>
+          </div>
+        </div>
+      </section>
+      <aside class="summary-card" aria-labelledby="summary-heading">
+        <h2 class="summary-heading" id="summary-heading">Ваша запись</h2>
+        <dl class="booking-details">
+          <div class="booking-field"><dt class="field-label">Мастер</dt><dd class="field-value">Алексей Морозов</dd></div>
+          <div class="booking-field"><dt class="field-label">Услуга</dt><dd class="field-value">Мужская стрижка</dd></div>
+          <div class="booking-field"><dt class="field-label">Дата</dt><dd class="field-value">7 октября 2026</dd></div>
+          <div class="booking-field"><dt class="field-label">Время</dt><dd class="field-value">17:30</dd></div>
+        </dl>
+        <div class="summary-bottom">
+          <div class="total"><span class="total-label">Итого</span><strong class="total-amount">2 200 ₽</strong></div>
+          <div class="summary-actions"><a class="back-button" href="#">Назад</a><a class="next-button" href="#">Далее</a></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
