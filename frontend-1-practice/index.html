@@ -43,14 +43,16 @@
           <button class="calendar-day" type="button">29</button><button class="calendar-day" type="button">30</button><button class="calendar-day" type="button">31</button>
         </div>
         <div class="times">
-          <h3 class="times-heading">Свободное время — 7 октября</h3>
+          <h3 class="times-heading">Время записи — 7 октября</h3>
           <div class="time-options">
             <button class="time-option" type="button">11:00</button>
             <button class="time-option" type="button">12:30</button>
             <button class="time-option" type="button">15:00</button>
             <button class="time-option selected" type="button" aria-pressed="true">17:30</button>
             <button class="time-option" type="button">19:00</button>
+            <button class="time-option unavailable" type="button" disabled aria-label="16:00 — занято">16:00</button>
           </div>
+          <p class="availability-note">Серым отмечено занятое время</p>
         </div>
       </section>
       <aside class="summary-card" aria-labelledby="summary-heading">
@@ -68,5 +70,6 @@
       </aside>
     </div>
   </main>
+  <footer class="site-footer"><span class="footer-copyright">© 2026 BRUTAL CUT</span><span class="footer-caption">Барбершоп в центре города</span></footer>
 </body>
 </html>
