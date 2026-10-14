@@ -1,59 +1,74 @@
-// App — корневой компонент приложения.
-//
-// ЗАДАНИЕ
-// --------
-// Перенесите свою страницу выбора даты и времени из нативного JS
-// на React. У вас уже есть:
-//   - готовая вёрстка (HTML);
-//   - готовые стили (CSS);
-//   - рабочий код на нативном JS (валидация дат, рендер календаря,
-//     обработчики кликов, выбор слота).
-//
-// Теперь нужно то же самое сделать в React.
-//
-// ЧТО НУЖНО СДЕЛАТЬ
-// ------------------
-// 1. Разбить страницу на компоненты. Как именно — решайте сами.
-//    Обычно выделяют: шапку, подвал, календарь, сетку слотов,
-//    нижнюю панель.
-//
-// 2. Перенести вёрстку из HTML в JSX. Стили оставить как есть,
-//    просто положить их в тот же проект (например, в src/styles/
-//    или рядом с компонентами).
-//
-// 3. Заменить нативное состояние (переменные + прямые манипуляции
-//    с DOM) на useState. Какие именно данные должны жить в состоянии —
-//    подумайте сами. Скорее всего: текущий месяц, выбранный день,
-//    выбранное время, массив слотов.
-//
-// 4. Рендер календаря и слотов делать через JSX и .map(),
-//    без innerHTML и querySelector.
-//
-// 5. Обработчики кликов — через onClick прямо в JSX,
-//    без addEventListener.
-//
-// 6. Функции для работы с датами, которые вы уже написали
-//    на нативном JS (построение сетки календаря, сравнение дат,
-//    проверка «не раньше сегодня»), можно переиспользовать.
-//    Они чистые — не зависят от React. Создайте файл
-//    src/utils/date.js и перенесите их туда.
-//
-//
-// ПОДСКАЗКА
-// ---------
-// Если что-то не работает или непонятно, как перевести нативный
-// код на React — вернитесь к лекции. Там разбирались все
-// основные приёмы: состояние, пропсы, рендер списков, колбэки.
-//
-// Ниже — пустой каркас. Здесь можно начать писать.
+import { useState } from "react";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+import Calendar from "./components/Calendar.jsx";
+import TimeSlots from "./components/TimeSlots.jsx";
+import BookingSummary from "./components/BookingSummary.jsx";
+import { getSlots, isDateSelectable } from "./utils/date.js";
+import "./booking.css";
 
-function App() {
-  return (
-    <div>
-      {/* Начните отсюда. Например, разметьте .page, добавьте шапку,
-            основную область, подвал. */}
-    </div>
-  );
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+export default function App() {
+  const [currentMonth, setCurrentMonth] = useState(today.getMonth());
+  const [currentYear, setCurrentYear] = useState(today.getFullYear());
+  const [selectedDay, setSelectedDay] = useState(today.getDate());
+  const [selectedTime, setSelectedTime] = useState(null);
+  const [slots, setSlots] = useState(() => getSlots(today.getDate(), today.getMonth(), today.getFullYear()));
+  const [status, setStatus] = useState("");
+
+  function handleDayClick(day) {
+    if (!isDateSelectable(day, currentMonth, currentYear, today)) return;
+    setSelectedDay(day);
+    setSelectedTime(null);
+    setSlots(getSlots(day, currentMonth, currentYear));
+    setStatus("");
+  }
+
+  function handleTimeClick(time) {
+    if (!slots.some(slot => slot.time === time && slot.available)) return;
+    setSelectedTime(time);
+    setStatus("");
+  }
+
+  function handleMonthChange(delta) {
+    const date = new Date(currentYear, currentMonth + delta, 1);
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const pastMonth = new Date(year, month + 1, 0) < today;
+    const day = pastMonth ? null :
+      (year === today.getFullYear() && month === today.getMonth() ? today.getDate() : 1);
+
+    setCurrentYear(year);
+    setCurrentMonth(month);
+    setSelectedDay(day);
+    setSelectedTime(null);
+    setSlots(day === null ? [] : getSlots(day, month, year));
+    setStatus("");
+  }
+
+  return <div className="page">
+    <Header />
+    <main className="main">
+      <section className="introduction" aria-labelledby="page-heading">
+        <p className="step-description">Шаг 3 из 5&nbsp; • &nbsp;Дата и время</p>
+        <p className="eyebrow">ЗАПИСЬ</p>
+        <h1 className="page-heading" id="page-heading">Выберите дату и время</h1>
+        <p className="page-description">Показываем только свободные слоты выбранного мастера.</p>
+      </section>
+      <div className="booking-layout">
+        <section className="calendar-card" aria-labelledby="month-heading">
+          <Calendar year={currentYear} month={currentMonth} selectedDay={selectedDay}
+            today={today} onDayClick={handleDayClick} onMonthChange={handleMonthChange} />
+          <TimeSlots day={selectedDay} month={currentMonth} slots={slots}
+            selectedTime={selectedTime} onTimeClick={handleTimeClick} />
+        </section>
+        <BookingSummary day={selectedDay} month={currentMonth} year={currentYear}
+          time={selectedTime} status={status}
+          onNext={() => setStatus("Дата и время выбраны. Можно переходить к подтверждению записи.")} />
+      </div>
+    </main>
+    <Footer />
+  </div>;
 }
-
-export default App;
