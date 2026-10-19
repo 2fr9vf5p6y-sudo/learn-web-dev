@@ -6,8 +6,8 @@
 
 // Общая обёртка над fetch.
 // Делает запрос, проверяет статус, парсит JSON.
-async function request(url) {
-  const response = await fetch(url);
+async function request(url, signal) {
+  const response = await fetch(url, { signal });
 
   // 2xx — всё хорошо. Иначе — кидаем ошибку с текстом от сервера.
   if (!response.ok) {
@@ -15,7 +15,7 @@ async function request(url) {
     try {
       const data = await response.json();
       if (data && data.error) message = data.error;
-    } catch (e) {
+    } catch {
       // Тело не JSON — оставляем базовый текст.
     }
     throw new Error(message);
@@ -27,8 +27,8 @@ async function request(url) {
 // GET /api/booking/today
 // Возвращает «сегодня» по мнению сервера: { day, month, year }.
 // Месяц — 0-индексный, как в new Date().
-export async function fetchToday() {
-  return request("/api/booking/today");
+export async function fetchToday(signal) {
+  return request("/api/booking/today", signal);
 }
 
 // GET /api/slots?day=&month=&year=
@@ -39,7 +39,7 @@ export async function fetchToday() {
 // чтобы понять, к какому дню относятся слоты. Если пользователь
 // быстро кликает по дням, ответы могут прийти не в том порядке —
 // по этому полю клиент поймёт, какой из них актуальный.
-export async function fetchSlots(date) {
+export async function fetchSlots(date, signal) {
   const url = `/api/slots?day=${date.day}&month=${date.month}&year=${date.year}`;
-  return request(url);
+  return request(url, signal);
 }

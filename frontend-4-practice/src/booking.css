@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root { --background:#f7f3ed; --white:#ffffff; --ink:#211c19; --muted:#796f66; --accent:#97512a; --pale:#efe4d1; --border:#e6d7c8; }
+* { box-sizing:border-box; }
+body, .page { margin:0; min-height:100vh; background:var(--background); color:var(--ink); font-family:Inter,Arial,sans-serif; }
+.header { min-height:92px; background:var(--white); display:flex; justify-content:space-between; align-items:center; padding:0 5.1%; gap:24px; }
+.header-brand { display:flex; align-items:center; gap:28px; }
+.brand { font-size:24px; font-weight:800; text-decoration:none; color:var(--ink); white-space:nowrap; letter-spacing:-.6px; }
+.brand-description { color:var(--muted); font-size:14px; }
+.navigation { display:flex; align-items:center; gap:30px; padding-right:5%; }
+.navigation-link { color:var(--ink); font-weight:500; text-decoration:none; font-size:15px; }
+.navigation-link:hover,.brand:hover { color:var(--accent); }
+.main { max-width:1568px; padding:23px 5.1% 55px; margin:0 auto; }
+.introduction { margin:0 0 57px; }
+.step-description { color:var(--muted); margin:0 0 21px; font-size:14px; font-weight:500; }
+.eyebrow { margin:0 0 13px; font-weight:700; color:var(--accent); font-size:13px; }
+.page-heading { font-size:clamp(32px,3vw,46px); letter-spacing:-1.2px; line-height:1.18; margin:0 0 9px; font-weight:800; }
+.page-description { color:var(--muted); font-size:18px; margin:0; line-height:1.5; }
+.booking-layout { display:grid; grid-template-columns:minmax(0, 880fr) minmax(320px,425fr); gap:7.4%; align-items:start; }
+.calendar-card { background:var(--white); border-radius:22px; min-width:0; min-height:510px; padding:28px 29px 31px; }
+.calendar-header { display:flex; align-items:center; justify-content:space-between; }
+.month-heading { margin:0; font-size:22px; font-weight:700; letter-spacing:-.5px; }
+.calendar-controls { display:flex; gap:20px; align-items:center; }
+.calendar-arrow { background:transparent; border:0; color:var(--ink); font-size:30px; line-height:1; cursor:pointer; padding:2px 8px; }
+.calendar-arrow:first-child { color:var(--muted); }
+.calendar-arrow:hover { color:var(--accent); }
+.calendar-grid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); grid-template-rows:42px repeat(5,63px); align-items:center; justify-items:start; margin:22px 0 17px; column-gap:0; }
+.weekday { font-size:13px; color:var(--muted); padding-left:7px; }
+.calendar-day { display:grid; place-items:center; width:46px; height:46px; padding:0; background:none; border:0; border-radius:14px; color:var(--ink); font:500 14px Inter,Arial,sans-serif; cursor:pointer; }
+.calendar-day:hover:not(.selected) { background:var(--pale); }
+.calendar-day.selected { background:var(--accent); color:var(--white); font-weight:700; }
+.calendar-day.selected:hover { background:#793d1e; }
+.times { margin-top:1px; }
+.times-heading { font-size:16px; font-weight:700; margin:0 0 15px; }
+.time-options { display:flex; flex-wrap:wrap; gap:22px; }
+.time-option { background:var(--pale); color:var(--ink); border:0; border-radius:25px; padding:11px 25px; min-width:106px; font:500 14px Inter,Arial,sans-serif; cursor:pointer; }
+.time-option:hover:not(.selected) { background:#e0cfb2; }
+.time-option.selected { background:var(--accent); color:#fff; font-weight:700; }
+.time-option.selected:hover { background:#793d1e; }
+.summary-card { background:var(--white); border-radius:22px; padding:29px 28px 33px; min-height:597px; display:flex; flex-direction:column; }
+.summary-heading { margin:0 0 23px; font-size:23px; letter-spacing:-.5px; font-weight:700; }
+.booking-details { margin:0; display:flex; flex-direction:column; gap:34px; }
+.booking-field { margin:0; }
+.field-label { font-size:13px; color:var(--muted); margin-bottom:6px; }
+.field-value { font-size:16px; font-weight:600; margin:0; line-height:1.35; }
+.summary-bottom { margin-top:auto; }
+.total { border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; padding:20px 0 37px; }
+.total-label { font-size:15px; color:var(--muted); }
+.total-amount { font-size:25px; letter-spacing:-.5px; }
+.summary-actions { display:flex; gap:9px; justify-content:flex-end; }
+.back-button,.next-button { display:grid; place-items:center; height:50px; border-radius:13px; text-decoration:none; font-size:15px; font-weight:600; cursor:pointer; }
+.back-button { border:1px solid var(--border); background:var(--white); color:var(--ink); flex:1; }
+.next-button { background:var(--accent); color:#fff; flex:1.25; }
+.back-button:hover { background:var(--pale); }
+.next-button:hover { background:#793d1e; }
+button:focus-visible,a:focus-visible { outline:3px solid #bd8a65; outline-offset:3px; }
+@media(max-width:1100px){ .booking-layout{gap:30px;grid-template-columns:minmax(0,1.5fr) minmax(300px,1fr)}.time-options{gap:10px}.time-option{min-width:90px}.calendar-grid{grid-template-rows:42px repeat(5,58px)} }
+@media(max-width:760px){ .header{padding:20px 5%;flex-wrap:wrap;gap:16px}.header-brand{gap:15px;flex-wrap:wrap}.navigation{padding-right:0;gap:20px}.main{padding:26px 5% 45px}.introduction{margin-bottom:30px}.booking-layout{grid-template-columns:1fr;gap:20px}.calendar-card{min-height:0}.summary-card{min-height:480px}.calendar-grid{grid-template-rows:37px repeat(5,55px)} }
+@media(max-width:420px){.brand-description{font-size:12px}.navigation-link{font-size:13px}.page-description{font-size:15px}.calendar-card,.summary-card{padding:22px 17px}.calendar-day{width:38px;height:40px}.calendar-grid{grid-template-rows:34px repeat(5,49px)}.time-options{gap:9px}.time-option{min-width:calc(33.333% - 6px);padding:11px 8px}.month-heading{font-size:19px} }
+/* Состояние занятого времени */
+.time-option.unavailable,
+.time-option.unavailable:hover {
+  background: #eeeeeb;
+  border: 1px solid #dad8d3;
+  color: #9c9993;
+  text-decoration: line-through;
+  cursor: not-allowed;
+  opacity: .8;
+}
+.availability-note { margin: 11px 0 0; font-size: 12px; color: var(--muted); }
+/* Подвал страницы */
+.site-footer { display:flex; justify-content:space-between; gap:16px; padding:18px 5.1%; color:var(--muted); font-size:12px; border-top:1px solid var(--border); background:var(--background); }
+.footer-copyright { font-weight:600; }
+.footer-caption { font-weight:400; }
+@media(max-width:420px) { .site-footer { flex-wrap:wrap; } }
+
+.calendar-day.disabled, .calendar-day.disabled:hover { color:#b7b2ab; background:transparent; cursor:not-allowed; opacity:.55; }
+.calendar-day.other-month { color:#c9c3bc; cursor:default; }
+.calendar-day.other-month:hover { background:transparent; }
+.next-button { border:0; cursor:pointer; font-family:inherit; }
+.next-button:disabled { opacity:.48; cursor:not-allowed; background:#b8a79a; }
+.back-button { font-family:inherit; cursor:pointer; }
+.booking-status { min-height:18px; margin:0 0 10px; font-size:12px; color:var(--muted); }
+.calendar-day:focus-visible,.time-option:focus-visible { outline:3px solid #bd8a65; outline-offset:2px; }
+
+.page {min-height:100vh;}
+
+.retry-button { border:1px solid var(--border); border-radius:12px; padding:12px 18px; background:var(--pale); color:var(--ink); font:inherit; cursor:pointer; }
+.calendar-grid { grid-template-rows:42px; grid-auto-rows:63px; }
+@media(max-width:760px) { .calendar-grid { grid-template-rows:37px; grid-auto-rows:55px; } }
+@media(max-width:420px) { .calendar-grid { grid-template-rows:34px; grid-auto-rows:49px; } }
